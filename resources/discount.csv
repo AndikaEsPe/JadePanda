@@ -1,0 +1,5 @@
+,DiscountId,PromoName,Percentage,ValidityPeriod
+0,1,15% Discount,15,30
+1,2,30% Discount,30,30
+2,3,50% Discount,50,30
+3,4,70% Discount,70,30

@@ -1,0 +1,5 @@
+Functionality:
+- Everyone can read menus
+- Customer can redeem coupons (logged in)
+- Customer can submit review to a specific branch
+- Customer can make reservations (submitting a form)
