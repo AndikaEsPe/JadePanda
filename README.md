@@ -14,7 +14,7 @@ In terminal 1: pg_ctl start -D "path ke data folder PostgreSQL"
 In terminal 2: 
 -> psql postgres postgres
 -> Insert password yang dibuat di awal
--> CREATE DATABASE <database_name>;
+-> CREATE DATABASE database_name;
 2. Create .env file and fill it with DATABASE_URL
 3. In terminal: npm init (until there is a package)
 4. In terminal: npm install
