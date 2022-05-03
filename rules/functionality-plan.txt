@@ -1,5 +1,7 @@
 Functionality:
 - Everyone can read menus
 - Customer can redeem coupons (logged in)
-- Customer can submit review to a specific branch
+- Customer can submit review to a specific branch (submit a form)
 - Customer can make reservations (submitting a form)
+- Customer can make orders online (optional, submit form)
+- Admin can check transaction history (optional, CRUD)
