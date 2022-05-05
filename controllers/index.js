@@ -1,6 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({path:"../.env"});
 const express = require('express');
-const { Menu } = require('./models/menuSchema');
+const { Menu } = require('../models/menuSchema');
 
 const app = express();
 const port = process.env.PORT || 5000 ;

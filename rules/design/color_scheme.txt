@@ -1,0 +1,3 @@
+Color choices from colorhunt: 
+- #FFEA54 (yellow) #FFCB3C (gold) #FEAA2B (orange) #FF5757 (red)
+- #FFEE82 (light yellow) #FDDA16 (yellow) #FF9000 (orange) #B31313 (dark red)

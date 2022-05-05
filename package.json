@@ -2,12 +2,12 @@
   "name": "jadepanda",
   "version": "1.0.0",
   "description": "Restaurant Website with React.js as the Frontend Framework, Express.js as the Backend Framework, Objection.js as the ORM, and PostgreSQL as the Database",
-  "main": "index.js",
+  "main": "./controllers/index.js",
   "scripts": {
-    "dev": "nodemon run",
+    "apiDev": "nodemon run",
     "deployment":"node index.js",
-    "seed": "npx knex seed:run --knexfile ./db/knexfile.js",
-    "migrate": "npx knex migrate:latest --knexfile ./db/knexfile.js",
+    "seed": "npx knex seed:run --knexfile ../db/knexfile.js",
+    "migrate": "npx knex migrate:latest --knexfile ../db/knexfile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matthew Adrianus Mulyono",

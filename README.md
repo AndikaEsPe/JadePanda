@@ -1,12 +1,15 @@
 ### Progress Log:
-1. 4th February 2022: Brainstorm the functionality and Create ERD (in Visual Paradigm)
-2. 16th February 2022: Scrape Chinese Food Data using Requests and BeautifulSoup (in Python), Generate Fake Data for Master Tables using Faker and Pandas (in Python), and Edit the ERD accordingly.
-3. 17th February 2022: Generate Fake Data for some Transaction Tables using Random (in Python)
-4. 11th March 2022: Generate database using Knex.js (in Javascript)
-5. 12th March 2022: Generate Models to access the database using Objection.js (in Javascript)
-6. 13th March 2022: Remove Staff related things, change functionality plan into that of a Restaurant Website instead of Restaurant Management Application
-7. 15th March 2022: Make Low Fidelity Design for Main Page
-8. 16th March 2022: Add some attributes to the database for better functionality
+4th February 2022: Brainstorm the functionality and Create ERD (in Visual Paradigm)
+16th February 2022: Scrape Chinese Food Data using Requests and BeautifulSoup (in Python), Generate Fake Data for Master Tables using Faker and Pandas (in Python), and Edit the ERD accordingly.
+17th February 2022: Generate Fake Data for some Transaction Tables using Random (in Python)
+11th March 2022: Generate database using Knex.js (in Javascript)
+12th March 2022: Generate Models to access the database using Objection.js (in Javascript)
+13th March 2022: Remove Staff related things, change functionality plan into that of a Restaurant Website instead of Restaurant Management Application
+15th March 2022: Make Low Fidelity Design for Main Page
+16th March 2022: Add some attributes to the database for better functionality
+4th May 2022: Added views folder using create-react-app
+5th May 2022: Trial connection between views and controllers
+
 
 ### In Local folder:
 1. Start postgres server, create database
