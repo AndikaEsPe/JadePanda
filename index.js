@@ -1,13 +1,14 @@
 require('dotenv').config();
 const express = require('express');
-const { TransactionDetail } = require('./models/transactionSchema');
+const { Menu } = require('./models/menuSchema');
 
 const app = express();
+const port = process.env.PORT || 5000 ;
 
-app.get('/', (req, res)=>{
-    TransactionDetail.query().then(arr=>res.json(arr));
+app.get('/api', (req, res)=>{
+    Menu.query().then(arr=>res.json(arr));
 });
 
-app.listen(3000, ()=>{
-    console.log('Server listening at port 3000');
+app.listen(port, ()=>{
+    console.log('Server listening at port ' + port);
 });
