@@ -14,7 +14,7 @@ def generate_phone():
     return phone
 
 # Menu Type
-menuType = DataFrame(
+menu_type = DataFrame(
     data = {
         'MenuTypeId': [1, 2, 3, 4],
         'TypeName':['Appetizer', 'Main Course', 'Dessert', 'Beverage']
@@ -36,31 +36,43 @@ branch = DataFrame(
     }
 )
 
-# Customer
-customer_names = [faker.name() for _ in range(20)]
-customer = DataFrame(
+# Discount
+promotion = DataFrame(
     data = {
-        'CustomerId': list(range(1,21)),
-        'FullName': customer_names,
-        'Email': [name.split()[0].lower() +str(randint(100,999)) + '@gmail.com' for name in customer_names],
-        'Password':[name.split()[0].lower() for name in customer_names],
-        'DOB':[faker.date_of_birth(minimum_age=12) for _ in range(20)],
-        'Phone': [generate_phone() for _ in range(20)]
+        'PromotionId': list(range(1,5)),
+        'PromoName':['Special Day Celebration!', "Women's night", 'Buy one, Get one!', 'Desserts are on us!'],
+        'PromoDescription':[
+            '40% Discount for all items on dates where date equals month (e.g. 5th May, 10th October) with minimum payment of Rp. 200.000,00',
+            '25% Discount for all women on Thursday nights',
+            'Buy One, Get One for minimum payment of Rp500.000,00',
+            'Free Desserts in every night on every 31th day of the month'
+        ],
+        'ImageURL':[
+            'https://static.wixstatic.com/media/1832aa_267f0a5d991743b8bc1567e67b510f1c~mv2_d_2048_1365_s_2.jpg/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/1832aa_267f0a5d991743b8bc1567e67b510f1c~mv2_d_2048_1365_s_2.jpg',
+            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsimplytaralynn.com%2F2014%2F07%2F22%2Fgirls-night-chinese-food-wine%2F&psig=AOvVaw0tQw9r6UnV1xHyEfjHtonn&ust=1651898005896000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNjb6uOFyvcCFQAAAAAdAAAAABAK',
+            'https://media.discordapp.net/attachments/758550072991547402/971996452681314334/Untitled_presentation.jpg',
+            'https://www.hmfood.com/wp-content/uploads/%E6%B5%81%E6%B2%99%E5%8C%85.jpg'
+        ]
     }
 )
 
-# Discount
-discount = DataFrame(
+delivery_type = DataFrame(
+    data={
+        'DeliveryTypeID': [1,2],
+        'DeliveryType':['Take Away', 'Delivery']
+    }
+)
+
+payment_option = DataFrame(
     data = {
-        'DiscountId': list(range(1,5)),
-        'PromoName':['15% Discount', '30% Discount', '50% Discount', '70% Discount'],
-        'Percentage':[15, 30, 50, 70],
-        'ValidityPeriod':[30]*4
+        'PaymentOptionId':[1,2,3],
+        'PaymentOption':['Cash On Demand', 'M-Banking', 'Bank Transfer']
     }
 )
 
 # To CSV
-menuType.to_csv('./resources/menuType.csv')
-branch.to_csv('./resources/branch.csv')
-customer.to_csv('./resources/customer.csv')
-discount.to_csv('./resources/discount.csv')
+menu_type.to_csv('./resources/menuType.csv', sep=";")
+branch.to_csv('./resources/branch.csv', sep=";")
+promotion.to_csv('./resources/promotion.csv', sep=";")
+delivery_type.to_csv("./resources/deliveryType.csv", sep=";")
+payment_option.to_csv("./resources/paymentOption.csv", sep=";")

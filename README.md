@@ -9,6 +9,7 @@
 - 16th March 2022: Add some attributes to the database for better functionality
 - 4th May 2022: Added views folder using create-react-app
 - 5th May 2022: Trial connection between views and controllers
+- 6th May 2022: Restructure Database
 
 ### In Local folder:
 1. Start postgres server, create database

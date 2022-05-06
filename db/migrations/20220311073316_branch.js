@@ -11,17 +11,18 @@ exports.up = function(knex) {
     table.time('CloseHour').notNullable();
     table.string('Phone').unique().notNullable();
   }).createTable('BranchReview', (table)=>{
+    table.increments("ReviewId", {primaryKey:true});
     table.integer('BranchId').references('BranchId').inTable('Branch');
-    table.integer('CustomerId').references('CustomerId').inTable('Customer');
+    table.string("Reviewer", 255).notNullable();
     table.integer('Rating').notNullable();
     table.string('ReviewBody', 500);
-    table.primary(['BranchId', 'CustomerId']);
   }).createTable('Reservation', (table)=>{
     table.increments('ReservationId',{primaryKey:true});
     table.integer('BranchId').references('BranchId').inTable('Branch').notNullable();
-    table.integer('CustomerId').references('CustomerId').inTable('Customer').notNullable();
-    table.date('ReservationDate').notNullable();
-    table.time('ReservationTime').notNullable();
+    table.string("FullName", 255).notNullable();
+    table.string("Email", 255).unique().notNullable();
+    table.integer("NumberOfGuests").notNullable();
+    table.datetime('ReservationDate').notNullable();
     table.string('ExtraRequest', 500);
   });
 };

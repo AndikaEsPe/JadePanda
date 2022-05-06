@@ -1,5 +1,5 @@
-,MenuTypeId,TypeName
-0,1,Appetizer
-1,2,Main Course
-2,3,Dessert
-3,4,Beverage
+;MenuTypeId;TypeName
+0;1;Appetizer
+1;2;Main Course
+2;3;Dessert
+3;4;Beverage

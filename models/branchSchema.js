@@ -13,6 +13,14 @@ class Branch extends Model{
 
     static get relationMappings(){
         return {
+            BranchPromotion:{
+                relation:Model.HasManyRelation,
+                modelClass:BranchDetail,
+                join:{
+                    from:"Branch.BranchId",
+                    to:"BranchPromotion.BranchId"
+                }
+            },
             BranchReview:{
                 relation:Model.HasManyRelation,
                 modelClass:BranchDetail,
@@ -47,14 +55,6 @@ class BranchReview extends Model{
                     from:"BranchReview.BranchId",
                     to:"Branch.BranchId"
                 }
-            },
-            Customer:{
-                relation:Model.BelongsToOneRelation,
-                modelClass:Customer,
-                join:{
-                    from:"BranchReview.CustomerId",
-                    to:"Customer.CustomerId"
-                }
             }
         }
     }
@@ -73,14 +73,6 @@ class Reservation extends Model{
                 join:{
                     from:"Reservation.BranchId",
                     to:"Branch.BranchId"
-                }
-            },
-            Customer:{
-                relation:Model.BelongsToOneRelation,
-                modelClass:Customer,
-                join:{
-                    from:"Reservation.CustomerId",
-                    to:"Customer.CustomerId"
                 }
             }
         }

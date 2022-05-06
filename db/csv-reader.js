@@ -2,7 +2,7 @@ exports.getMenuType = ()=>{
     data = require('fs').readFileSync('../resources/menuType.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
         MenuTypeId:parseInt(temp[1]),
         TypeName:temp[2]
@@ -28,35 +28,18 @@ exports.getMenu = ()=>{
     return data.slice(1,-1);
 }
 
-exports.getCustomer = ()=>{
-    data = require('fs').readFileSync('../resources/customer.csv', 'utf-8')
-    data = data.split('\r\n');
-    for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
-      data[i] = {
-        CustomerId:parseInt(temp[1]),
-        FullName:temp[2],
-        Email:temp[3],
-        Password:temp[4],
-        DOB:temp[5],
-        Phone:temp[6]
-      }
-    }
-    return data.slice(1,-1); 
-};
-
 exports.getBranch = ()=>{
     data = require('fs').readFileSync('../resources/branch.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
         BranchId:parseInt(temp[1]),
-        Address:temp.slice(2, temp.length-4).join(','),
-        ImageURL:temp[temp.length-4],
-        OpenHour:new String(temp[temp.length-3]).replace('.',':') + ":00",
-        CloseHour:new String(temp[temp.length-2]).replace('.',':') + ":00",
-        Phone:temp[temp.length-1]
+        Address:temp[2],
+        ImageURL:temp[3],
+        OpenHour:new String(temp[4]).replace('.',':') + ":00",
+        CloseHour:new String(temp[5]).replace('.',':') + ":00",
+        Phone:temp[6]
       }
     }
     return data.slice(1,-1); 
@@ -66,58 +49,69 @@ exports.getBranchReview = ()=>{
     data = require('fs').readFileSync('../resources/branchReview.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
-        BranchId:parseInt(temp[1]),
-        CustomerId:parseInt(temp[2]),
-        Rating:parseInt(temp[3]),
-        ReviewBody: temp[4]=='' ? null:temp[4]
+        ReviewId:parseInt(temp[1]),
+        BranchId:parseInt(temp[2]),
+        Reviewer:temp[3],
+        Rating:parseInt(temp[4]),
+        ReviewBody: temp[5]=='' ? null:temp[5]
       }
     }
     return data.slice(1,-1); 
 };
 
-exports.getDiscount = ()=>{
-    data = require('fs').readFileSync('../resources/discount.csv', 'utf-8')
+exports.getPromotion = ()=>{
+    data = require('fs').readFileSync('../resources/promotion.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
-        DiscountId:parseInt(temp[1]),
+        PromotionId:parseInt(temp[1]),
         PromoName:temp[2],
-        Percentage:parseInt(temp[3]),
-        ValidityPeriod:parseInt(temp[4])
+        PromoDescription:temp[3],
+        ImageURL:temp[4]
       }
     }
     return data.slice(1,-1); 
 };
 
-exports.getTransactionHeader = ()=>{
-    data = require('fs').readFileSync('../resources/transactionHeader.csv', 'utf-8')
+exports.getBranchPromotion = ()=>{
+  data = require('fs').readFileSync('../resources/branchPromotion.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
-        TransactionId:parseInt(temp[1]),
-        CustomerId:parseInt(temp[2]),
-        DiscountId:temp[3]==''?null:parseInt(temp[3]),
-        TransactionDate:new Date(Date.now())
+        BranchId: parseInt(temp[1]),
+        PromotionId:parseInt(temp[2]),
+        ValidUntil:temp[3]
       }
     }
-    return data.slice(1,-1); 
-};
+    return data.slice(1,-1);
+}
 
-exports.getTransactionDetail = ()=>{
-    data = require('fs').readFileSync('../resources/transactionDetail.csv', 'utf-8')
+exports.getDeliveryType = ()=>{
+  data = require('fs').readFileSync('../resources/deliveryType.csv', 'utf-8')
     data = data.split('\r\n');
     for(let i =0;i<data.length;++i){
-      let temp = data[i].split(',');
+      let temp = data[i].split(';');
       data[i] = {
-        TransactionId:parseInt(temp[1]),
-        MenuId:parseInt(temp[2]),
-        Quantity:parseInt(temp[3]),
-        ExtraRequest:temp[4]==''?null:temp[4]
+        DeliveryTypeId:parseInt(temp[1]),
+        DeliveryType:temp[2],
       }
     }
     return data.slice(1,-1); 
-};
+}
+
+exports.getPaymentOption = ()=>{
+  data = require('fs').readFileSync('../resources/paymentOption.csv', 'utf-8')
+    data = data.split('\r\n');
+    for(let i =0;i<data.length;++i){
+      let temp = data[i].split(';');
+      data[i] = {
+        PaymentOptionId:parseInt(temp[1]),
+        PaymentOption:temp[2],
+      }
+    }
+    return data.slice(1,-1); 
+}

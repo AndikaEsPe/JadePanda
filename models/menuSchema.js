@@ -40,12 +40,12 @@ class Menu extends Model{
                     to:'MenuType.MenuTypeId'
                 }
             },
-            TransactionDetail:{
+            OrderDetail:{
                 relation:Model.HasManyRelation,
-                modelClass:TransactionDetail,
+                modelClass:OrderDetail,
                 join:{
                     from:'Menu.MenuId',
-                    to:'TransactionDetail.MenuId'
+                    to:'OrderDetail.MenuId'
                 }
             }
         }
