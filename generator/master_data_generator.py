@@ -1,9 +1,9 @@
 from faker import Faker
 from pandas import DataFrame, read_csv
-from random import randint
+from random import choice, randint
 
 # Create generator
-faker = Faker()
+faker = Faker('id_ID')
 
 # Utility Function
 def generate_phone():
@@ -25,7 +25,7 @@ menu_type = DataFrame(
 branch = DataFrame(
     data = {
         'BranchId':[1,2],
-        'Address':[faker.street_address() + ', ' + faker.city() + ', ' + faker.country() for _ in range(2)],
+        'Address':[faker.street_address() + ', ' + faker.city() + ', Indonesia'  for _ in range(2)],
         'ImageURL':[
             'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpbmVzZSUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8',
             'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2hpbmVzZSUyMHJlc3RhdXJhbnR8ZW58MHwwfDB8fA%3D%3D'

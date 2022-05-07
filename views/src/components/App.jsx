@@ -1,24 +1,39 @@
 import React, { useEffect, useState } from "react"
 import MenuElement from "./MenuElement";
 
+const fetchAPI = (path, func)=>{
+    fetch(path).then(
+        response=>response.json()
+    ).then(
+        result=>func(result)
+    )
+}
+
 const App = ()=>{
-    const [data, setData] = useState(null);
-    useEffect(()=>{
-        fetch('/api').then(
-            response=>response.json()
-        ).then(
-            result=>setData(result)
-        )
-    }, []);
+    // Create State
+    const [menu, setMenu] = useState(null);
+    const [branches, setBranches] = useState(null);
+    // Fetch data from API
+    fetchAPI('/api/menu', setMenu);
+    fetchAPI('/api/branch', setBranches);
+
     return (
         <div>
-            {!data? "Loading..." : data.map((menu)=>{
+            {!menu? "Loading Menu..." : menu.map((menuItem)=>{
                 return <MenuElement 
-                    name={menu.DishName}
-                    desc={menu.Description}
-                    price={menu.Price}
-                    image={menu.ImageURL} 
+                    name={menuItem.DishName}
+                    desc={menuItem.Description}
+                    price={menuItem.Price}
+                    image={menuItem.ImageURL} 
                 />
+            })}
+            <br />
+            {!branches?"Loading Branches...":branches.map((branch)=>{
+                return (
+                    <div>
+                        <img src={branch.ImageURL} alt={branch.Address} />
+                    </div>
+                )
             })}
         </div>
     )
