@@ -10,6 +10,9 @@ exports.up = function(knex) {
     table.time('OpenHour').notNullable();
     table.time('CloseHour').notNullable();
     table.string('Phone').unique().notNullable();
+    table.integer("Capacity").notNullable();
+    table.float("Latitude").notNullable();
+    table.float("Longitude").notNullable();
   }).createTable('BranchReview', (table)=>{
     table.increments("ReviewId", {primaryKey:true});
     table.integer('BranchId').references('BranchId').inTable('Branch');
@@ -21,6 +24,7 @@ exports.up = function(knex) {
     table.integer('BranchId').references('BranchId').inTable('Branch').notNullable();
     table.string("FullName", 255).notNullable();
     table.string("Email", 255).unique().notNullable();
+    table.string("Phone", 20).notNullable();
     table.integer("NumberOfGuests").notNullable();
     table.datetime('ReservationDate').notNullable();
     table.string('ExtraRequest', 500);

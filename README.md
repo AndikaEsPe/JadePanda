@@ -1,3 +1,19 @@
+### Tools and Technologies:
+##### Data Generation
+- Beautiful Soup = Python Web Scraping Library
+- Faker = Python Fake Data Generator Library
+- Pandas = Python Data Manipulation Library
+- Requests = Python HTTP Library
+##### Prototyping
+- Visual Paradigm = Database Design
+- Excalidraw = Website Sketch
+##### Web Development
+- React.js = Frontend JS Framework
+- Tailwind.css = Frontend CSS Framework
+- Objection.js = ORM for Node.js
+- Knex.js = SQL Query Builder
+- Express.js = Backend JS Framework
+
 ### Progress Log:
 - 4th February 2022: Brainstorm the functionality and Create ERD (in Visual Paradigm)
 - 16th February 2022: Scrape Chinese Food Data using Requests and BeautifulSoup (in Python), Generate Fake Data for Master Tables using Faker and Pandas (in Python), and Edit the ERD accordingly.
@@ -9,7 +25,7 @@
 - 16th March 2022: Add some attributes to the database for better functionality
 - 4th May 2022: Added views folder using create-react-app
 - 5th May 2022: Trial connection between views and controllers
-- 6th May 2022: Restructure Database
+- 6th - 8th May 2022: Restructure database and design API in controllers
 
 ### In Local folder:
 1. Start postgres server, create database

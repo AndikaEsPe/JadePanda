@@ -4,7 +4,7 @@
   "description": "Restaurant Website with React.js as the Frontend Framework, Express.js as the Backend Framework, Objection.js as the ORM, and PostgreSQL as the Database",
   "main": "./controllers/index.js",
   "scripts": {
-    "apiDev": "nodemon run",
+    "api": "nodemon run",
     "deployment":"node ./controllers/index.js",
     "heroku-postbuild": "cd views && npm install && npm run build",
     "seed": "npx knex seed:run --knexfile ./db/knexfile.js",

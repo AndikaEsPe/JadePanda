@@ -22,17 +22,26 @@ menu_type = DataFrame(
 )
 
 # Branch
+fake_locations = [faker.local_latlng(country_code='ID') for _ in range(2)]
+
+def format_address(loc:tuple):
+    country = loc[-1].replace('_',' ').replace('Asia', 'Indonesia')
+    return f"{loc[2]}, {', '.join(country.split('/')[::-1])}"
+
 branch = DataFrame(
     data = {
         'BranchId':[1,2],
-        'Address':[faker.street_address() + ', ' + faker.city() + ', Indonesia'  for _ in range(2)],
+        'Address':[format_address(loc) for loc in fake_locations],
         'ImageURL':[
             'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Y2hpbmVzZSUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8',
             'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Y2hpbmVzZSUyMHJlc3RhdXJhbnR8ZW58MHwwfDB8fA%3D%3D'
         ],
         'OpenHour':['10.00']*2,
         'CloseHour': ['22.00']*2,
-        'Phone': [generate_phone() for _ in range(2)]
+        'Phone': [generate_phone() for _ in range(2)],
+        'Capacity':[randint(50,100) for _ in range(2)],
+        'Latitude':[float(loc[0]) for loc in fake_locations],
+        'Longitude':[float(loc[1]) for loc in fake_locations]
     }
 )
 

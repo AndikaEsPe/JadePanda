@@ -39,7 +39,10 @@ exports.getBranch = ()=>{
         ImageURL:temp[3],
         OpenHour:new String(temp[4]).replace('.',':') + ":00",
         CloseHour:new String(temp[5]).replace('.',':') + ":00",
-        Phone:temp[6]
+        Phone:temp[6],
+        Capacity:parseInt(temp[7]),
+        Latitude:parseFloat(temp[8]),
+        Longitude:parseFloat(temp[9])
       }
     }
     return data.slice(1,-1); 
