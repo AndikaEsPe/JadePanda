@@ -14,8 +14,8 @@ const App = ()=>{
     const [menu, setMenu] = useState(null);
     const [branches, setBranches] = useState(null);
     // Fetch data from API
-    fetchAPI('/api/menu', setMenu);
-    fetchAPI('/api/branch', setBranches);
+    fetchAPI('/api/views/menu', setMenu);
+    fetchAPI('/api/views/branch', setBranches);
 
     return (
         <div>
