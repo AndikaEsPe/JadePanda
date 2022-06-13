@@ -1,4 +1,10 @@
 Functionality:
 - Everyone can read menus, promotions, and reviews
 - Customer can make reservations (submitting a form)
-- Customer can make orders online (optional, submit form)
+- Customer can make orders online (Probably won't happen)
+
+Tech Stack:
+- PostgreSQL (heroku only provided free postgreSQL server)
+- Objection.js (ORM)
+- React.js (Manage views)
+- Express.js (Manage APIs)
